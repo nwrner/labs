@@ -1,0 +1,27 @@
+* {
+background-color: black
+}
+
+
+div {
+text-align:center;
+} 
+
+p {
+display:inline-block;
+margin: 0px 20px 0px 20px;
+font-size: 25px;
+color:white;
+}
+
+a:visited{
+color:white; 
+}
+
+a:hover{
+color:white; 
+}
+
+h1 {
+color:white;
+}
