@@ -74,6 +74,15 @@ font-size:18px;
 }
 
 #cap {
-font-family:Times;
-font-size:12px;
+font-family:Monaco;
+font-size:25px;
+border:1px;
+border-style: solid;
+}
+
+#des {
+font-family: Monaco; 
+font-size:20px; 
+border:1px;
+border-style:solid;
 }
