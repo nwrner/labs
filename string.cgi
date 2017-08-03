@@ -41,8 +41,8 @@ my $str;
 my $listcount= scalar @master;
 
 while ($counter < $listcount) {
-	$counter+=2; 
 	push (@evens, @master[$counter]);
+	$counter+=2; 
 	#if ($counter%2==0) {
 	#	push (@evens, @master[$counter]); 
 	#}
@@ -52,32 +52,58 @@ while ($counter < $listcount) {
 #print "The third item?: <br> @evens[0]<br>"; 
 
 my $calendarloc="/var/www/html/calendar.html"; 
-open (my $f, '>>', $calendarloc);
+open (my $f, '>', $calendarloc);
 
 my $str = "@evens"; 
 my $str1 = "@master";
 my $pos1 = 0;
-my $pos2 = 12; 
-my $char = substr $str, $pos1, $pos2;  
+my $pos2 = 11; 
 print "String $str<br>\n";
-print "Fragment: $char<br>\n";
+#print "Fragment: $char<br>\n";
 my $evenscount = scalar @evens; 
 my $breaker =0;
-
-while ($breaker!=$listcount) {
+print $f "<table border='1'  bordercolor='#FFFF00' cellspacing='0' cellpadding='0' align=center>";
+print $f "<tr>";
+while ($breaker!=$listcount) {	
+	my $char = substr $str, $pos1, $pos2;  
 	print "$breaker: Requester: @master[$breaker]<br>\n"; 	
-	print $f "<table valign=top><font size='2' face='Tahoma'>@master[$breaker]<br>\n"; 
-	$breaker+=1;	
+	print $f "<td valign=top><font size='2' face='Tahoma'>Name:@master[$breaker]";
+	print $f "Index:$char<br>";
+	$breaker+=1;
+	print "$breaker Date: @master[$breaker]<br>\n";
+	print $f "Date: @master[$breaker]<br></font></td>"; 	
+	#print $f "<br>$char";
+	$breaker+=1;
+	$pos1+=13;
+	#print $f @evens;
+	#print $f "<br";
+	#print $f "==========================="; 
+}
+
+print $f "</tr>"; 
+print $f "</table>"; 
+#print $f @evens; 
+#print $f "<br>@master";
+#$pos1 = 0;
+#$pos2 = 11;
+#my $char = substr $str, $pos1, $pos2;
+
+#print $f "<tr>";
+#print "CHARACTERS: $char"; 
+
+=pod
+while ($breaker!=$listcount) {	
 	print "$breaker: Date: @master[$breaker]<br>\n"; 
 	$breaker+=1;
 }
-print @evens;
 
-print $f "<table border='1'  bordercolor='#FFFF00' cellspacing='0' cellpadding='0' align=center>";
+print $f "</tr>"; 
+#print @evens;
+=cut
+=pod
 print $f "<tr>";
 print $f "<td> </td>";
 print $f "<td> </td>";
-print $f "<td valign=top><font size='2' face='Tahoma'><p id='1change'>1<br></font></td>";
 print $f "<td valign=top><font size='2' face='Tahoma'>2<br></font></td>";
 print $f "<td valign=top><font size='2' face='Tahoma'>3<br></font></td>";
 print $f "<td valign=top><font size='2' face='Tahoma'>4<br></font></td>";
@@ -91,3 +117,4 @@ print $f "</table>";
 #	$pos1=$pos1+13;
 #	$counter2+=1;  
 ##}
+=cut
